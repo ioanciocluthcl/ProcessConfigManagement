@@ -16,7 +16,7 @@ public class ProcessConfigController {
         return processConfigService.save(config);
     }
 
-    @GetMapping("processConfig")
+    @GetMapping("/processConfig")
     public ProcessConfig getTenantConfig(@RequestParam Integer tenantId) {
         return processConfigService.getTenantConfig(tenantId);
 
