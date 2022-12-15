@@ -1,10 +1,10 @@
-package com.drools.research.rulesmanagement;
+package com.research.processconfig;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RulesmanagementApplicationTests {
+class ProcessConfigApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -8,10 +8,10 @@
 		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.drools.research</groupId>
-	<artifactId>rulesmanagement</artifactId>
+	<groupId>com.research.processconfig</groupId>
+	<artifactId>ProcessConfigManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rulesmanagement</name>
+	<name>processConfigManagement</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
