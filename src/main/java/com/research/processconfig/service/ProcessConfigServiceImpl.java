@@ -21,7 +21,7 @@ public class ProcessConfigServiceImpl implements ProcessConfigService {
     public ProcessConfig save(ProcessConfig config) {
         ProcessConfigEntity entity = configMapper.toEntity(config);
         entity.setDate(LocalDateTime.now());
-        ProcessConfigEntity existingConfig = processConfigRepository.getTenantConfig(config.getTenantId());
+        ProcessConfigEntity existingConfig = processConfigRepository.findFirstByTenantIdOrderByVersionDesc(config.getTenantId());
         if (existingConfig != null) {
             entity.setVersion(existingConfig.getVersion() + 1);
         } else {
@@ -33,7 +33,7 @@ public class ProcessConfigServiceImpl implements ProcessConfigService {
 
     @Override
     public ProcessConfig getTenantConfig(Integer tenantId) {
-        ProcessConfigEntity latestConfig = processConfigRepository.getTenantConfig(tenantId);
+        ProcessConfigEntity latestConfig = processConfigRepository.findFirstByTenantIdOrderByVersionDesc(tenantId);
         ProcessConfig config = configMapper.toDto(latestConfig);
         return config;
     }
