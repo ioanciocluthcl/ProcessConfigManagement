@@ -9,11 +9,11 @@ import java.util.List;
 
 @Repository
 public interface ProcessConfigRepository extends MongoRepository<ProcessConfigEntity, ObjectId> {
-
-    List<ProcessConfigEntity> findByTenantId(Integer tenantId);
+    
+    List<ProcessConfigEntity> findFirstByTenantIdOrderByVersionDesc(Integer tenantId);
 
     default ProcessConfigEntity getTenantConfig(Integer tenantId){
-        ProcessConfigEntity entity = findByTenantId(tenantId).stream().sorted(Comparator.comparing(ProcessConfigEntity::getVersion).reversed()).findFirst().orElse(null);
-        return entity;
+        List<ProcessConfigEntity> list = findFirstByTenantIdOrderByVersionDesc(tenantId);
+        return list.stream().findFirst().orElse(null);
     }
 }
