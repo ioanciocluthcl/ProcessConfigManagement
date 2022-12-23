@@ -32,7 +32,7 @@ public class ProcessConfigServiceImpl implements ProcessConfigService {
     }
 
     @Override
-    public ProcessConfig getTenantConfig(Integer tenantId) {
+    public ProcessConfig getTenantConfig(String tenantId) {
         ProcessConfigEntity latestConfig = processConfigRepository.findFirstByTenantIdOrderByVersionDesc(tenantId);
         ProcessConfig config = configMapper.toDto(latestConfig);
         return config;

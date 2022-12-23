@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class ProcessConfigEntity {
     @Id
     private ObjectId id;
-    private Integer tenantId;
+    private String tenantId;
     private Integer version;
     private String config;
     private LocalDateTime date;
